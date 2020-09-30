@@ -164,6 +164,7 @@ public class ConfigAPI
      */
     public static void loadFile(Plugin plugin, String name) {
         DataFile dataFile = new DataFile(name, plugin);
+        dataFile.createFile();
     }
 
     /**
