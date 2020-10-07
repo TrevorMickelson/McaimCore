@@ -298,14 +298,14 @@ public class ArmorListener implements Listener
     }
 
     // Gets armor type
-    private ArmorType getArmorType(ItemStack itemStack) {
-        if (itemStack.getType().toString().toLowerCase().contains("player_head")) {
+    private ArmorType getArmorType(ItemStack item) {
+        if (item.getType().toString().toLowerCase().contains("player_head")) {
             return ArmorType.PLAYER_HEAD;
-        } else if (itemStack.getType().toString().toLowerCase().contains("helmet")) {
+        } else if (item.getType().toString().toLowerCase().contains("helmet")) {
             return ArmorType.HELMET;
-        } else if (itemStack.getType().toString().toLowerCase().contains("chestplate")) {
+        } else if (item.getType().toString().toLowerCase().contains("chestplate")) {
             return ArmorType.CHESTPLATE;
-        } else if (itemStack.getType().toString().toLowerCase().contains("leggings")) {
+        } else if (item.getType().toString().toLowerCase().contains("leggings")) {
             return ArmorType.LEGGINGS;
         } else {
             return ArmorType.BOOTS;
