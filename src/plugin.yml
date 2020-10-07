@@ -1,0 +1,5 @@
+name: McAimCore
+author: CodePunisher
+version: 1.0
+main: main.CoreMain
+api-version: 1.16

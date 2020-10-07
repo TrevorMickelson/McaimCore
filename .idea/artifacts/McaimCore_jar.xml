@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="McaimCore:jar">
-    <output-path>$PROJECT_DIR$/../Global Plugins &amp; API's</output-path>
+    <output-path>$PROJECT_DIR$/../1.16 server run/plugins</output-path>
     <root id="archive" name="McaimCore.jar">
       <element id="module-output" name="McaimCore" />
     </root>
