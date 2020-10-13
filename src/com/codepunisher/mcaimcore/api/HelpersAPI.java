@@ -1,6 +1,7 @@
-package general;
+package com.codepunisher.mcaimcore.api;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -16,28 +17,19 @@ public class HelpersAPI
     // Returns string name of UUID if online or offline
     public static String getUUIDName(UUID uuid) {
         Player player = Bukkit.getPlayer(uuid);
-
-        if (player != null)
-        {
-            return player.getName();
-        }
-        else
-        {
-            return Bukkit.getOfflinePlayer(uuid).getName();
-        }
+        return player != null ? player.getName() : Bukkit.getOfflinePlayer(uuid).getName();
     }
 
     // Returns UUID from string of player
     public static UUID getStringUUID(String string) {
         Player player = Bukkit.getPlayer(string);
 
-        if (player != null)
-        {
+        if (player != null) {
             return player.getUniqueId();
-        }
-        else
-        {
-            return Bukkit.getOfflinePlayer(string).getUniqueId();
+        } else {
+            // Only creating UUID object of the user has played before
+            OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(string);
+            return offlinePlayer.hasPlayedBefore() ? offlinePlayer.getUniqueId() : null;
         }
     }
 }

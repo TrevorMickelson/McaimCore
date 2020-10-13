@@ -1,4 +1,4 @@
-package models;
+package com.codepunisher.mcaimcore.models;
 
 public enum ArmorTier
 {

@@ -1,8 +1,7 @@
-package listeners;
+package com.codepunisher.mcaimcore.listeners;
 
-import events.PlayerHitEntityEvent;
-import jdk.nashorn.internal.ir.Block;
-import models.HitCause;
+import com.codepunisher.mcaimcore.events.PlayerHitEntityEvent;
+import com.codepunisher.mcaimcore.models.HitCause;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_16_R2.entity.CraftThrownPotion;
@@ -12,8 +11,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
-import java.util.HashMap;
-import java.util.UUID;
 
 /**
  * The purpose of this class
@@ -27,14 +24,8 @@ import java.util.UUID;
  */
 public class EntityDamage implements Listener
 {
-    private HashMap<UUID, Block> ignitedEntity = new HashMap<>();
-
-    @EventHandler (priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    @EventHandler (priority = EventPriority.LOWEST)
     public void onEntityDamage(EntityDamageByEntityEvent event) {
-        // Not running if event is cancelled
-        if (event.isCancelled())
-            return;
-
         // Attacker
         Entity damager = event.getDamager();
         HitCause hitCause = HitCause.UNKNOWN;
@@ -51,12 +42,15 @@ public class EntityDamage implements Listener
                     hitCause = HitCause.SWORD;
 
                 if (mainItem.getType().toString().toLowerCase().contains("shovel") ||
-                        mainItem.getType().toString().toLowerCase().contains("axe") ||
-                        mainItem.getType().toString().toLowerCase().contains("hoe"))
+                    mainItem.getType().toString().toLowerCase().contains("axe") ||
+                    mainItem.getType().toString().toLowerCase().contains("hoe"))
                     hitCause = HitCause.TOOL;
 
-                PlayerHitEntityEvent e = new PlayerHitEntityEvent(player, event.getEntity(), hitCause);
+                PlayerHitEntityEvent e = new PlayerHitEntityEvent(player, event.getEntity(), hitCause, event.getDamage());
                 Bukkit.getPluginManager().callEvent(e);
+
+                if (e.getDamage() != event.getDamage())
+                    event.setDamage(e.getDamage());
 
                 if (e.isCancelled())
                     event.setCancelled(true);
@@ -82,8 +76,11 @@ public class EntityDamage implements Listener
                     if (projectile instanceof Snowball)
                         hitCause = HitCause.SNOWBALL;
 
-                    PlayerHitEntityEvent e = new PlayerHitEntityEvent(player, event.getEntity(), hitCause);
+                    PlayerHitEntityEvent e = new PlayerHitEntityEvent(player, event.getEntity(), hitCause, event.getDamage());
                     Bukkit.getPluginManager().callEvent(e);
+
+                    if (e.getDamage() != event.getDamage())
+                        event.setDamage(e.getDamage());
 
                     if (e.isCancelled())
                         event.setCancelled(true);

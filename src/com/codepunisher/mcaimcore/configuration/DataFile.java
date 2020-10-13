@@ -1,4 +1,4 @@
-package configuration;
+package com.codepunisher.mcaimcore.configuration;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

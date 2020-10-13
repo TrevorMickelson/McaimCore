@@ -1,4 +1,4 @@
-package configuration;
+package com.codepunisher.mcaimcore.configuration;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

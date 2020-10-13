@@ -1,12 +1,11 @@
-package main;
+package com.codepunisher.mcaimcore;
 
-import listeners.ArmorListener;
-import listeners.EntityDamage;
-import listeners.PlayerMoving;
-import org.bukkit.event.Listener;
+import com.codepunisher.mcaimcore.listeners.MoveEventManager;
+import com.codepunisher.mcaimcore.listeners.ArmorListener;
+import com.codepunisher.mcaimcore.listeners.EntityDamage;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class CoreMain extends JavaPlugin implements Listener
+public class CoreMain extends JavaPlugin
 {
     private static CoreMain coreMain;
     public static CoreMain getInstance() { return coreMain; }
@@ -15,7 +14,7 @@ public class CoreMain extends JavaPlugin implements Listener
     public void onEnable()
     {
         coreMain = this;
-        getServer().getPluginManager().registerEvents(new PlayerMoving(), this);
+        MoveEventManager.register(this);
         getServer().getPluginManager().registerEvents(new ArmorListener(), this);
         getServer().getPluginManager().registerEvents(new EntityDamage(), this);
     }

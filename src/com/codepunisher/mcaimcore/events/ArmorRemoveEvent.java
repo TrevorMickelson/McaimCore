@@ -1,31 +1,27 @@
-package events;
+package com.codepunisher.mcaimcore.events;
 
-import models.HitCause;
-import org.bukkit.entity.Entity;
+import com.codepunisher.mcaimcore.models.Armor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class PlayerHitEntityEvent extends Event implements Cancellable
+public class ArmorRemoveEvent extends Event implements Cancellable
 {
     private static final HandlerList handlers = new HandlerList();
 
     private final Player player;
-    private final Entity entity;
-    private final HitCause hitCause;
+    private final Armor armor;
     private boolean cancelled;
 
-    public PlayerHitEntityEvent(final Player player, final Entity entity, final HitCause hitCause) {
+    public ArmorRemoveEvent(final Player player, final Armor armor) {
         this.player = player;
-        this.entity = entity;
-        this.hitCause = hitCause;
+        this.armor = armor;
         this.cancelled = false;
     }
 
     public final Player getPlayer() { return this.player; }
-    public final Entity getEntity() { return this.entity; }
-    public final HitCause getHitCause() { return this.hitCause; }
+    public Armor getArmor() { return this.armor; }
 
     @Override
     public HandlerList getHandlers() { return handlers; }

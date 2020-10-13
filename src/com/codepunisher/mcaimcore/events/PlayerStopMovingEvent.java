@@ -1,4 +1,4 @@
-package events;
+package com.codepunisher.mcaimcore.events;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;

@@ -1,4 +1,4 @@
-package models;
+package com.codepunisher.mcaimcore.models;
 
 import org.bukkit.inventory.ItemStack;
 

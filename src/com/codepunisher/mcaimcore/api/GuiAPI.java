@@ -1,4 +1,4 @@
-package general;
+package com.codepunisher.mcaimcore.api;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

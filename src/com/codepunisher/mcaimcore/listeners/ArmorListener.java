@@ -1,11 +1,11 @@
-package listeners;
+package com.codepunisher.mcaimcore.listeners;
 
-import events.ArmorEquipEvent;
-import events.ArmorRemoveEvent;
-import main.CoreMain;
-import models.Armor;
-import models.ArmorTier;
-import models.ArmorType;
+import com.codepunisher.mcaimcore.CoreMain;
+import com.codepunisher.mcaimcore.events.ArmorEquipEvent;
+import com.codepunisher.mcaimcore.events.ArmorRemoveEvent;
+import com.codepunisher.mcaimcore.models.Armor;
+import com.codepunisher.mcaimcore.models.ArmorTier;
+import com.codepunisher.mcaimcore.models.ArmorType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
