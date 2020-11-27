@@ -1,4 +1,4 @@
-package com.codepunisher.mcaimcore.models;
+package com.codepunisher.mcaimcore.events.eventmodels;
 
 public enum HitCause
 {

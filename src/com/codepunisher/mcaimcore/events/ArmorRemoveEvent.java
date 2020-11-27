@@ -1,6 +1,6 @@
 package com.codepunisher.mcaimcore.events;
 
-import com.codepunisher.mcaimcore.models.Armor;
+import com.codepunisher.mcaimcore.events.eventmodels.Armor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;

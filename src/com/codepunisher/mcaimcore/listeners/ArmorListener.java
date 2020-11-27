@@ -3,9 +3,9 @@ package com.codepunisher.mcaimcore.listeners;
 import com.codepunisher.mcaimcore.CoreMain;
 import com.codepunisher.mcaimcore.events.ArmorEquipEvent;
 import com.codepunisher.mcaimcore.events.ArmorRemoveEvent;
-import com.codepunisher.mcaimcore.models.Armor;
-import com.codepunisher.mcaimcore.models.ArmorTier;
-import com.codepunisher.mcaimcore.models.ArmorType;
+import com.codepunisher.mcaimcore.events.eventmodels.Armor;
+import com.codepunisher.mcaimcore.events.eventmodels.ArmorTier;
+import com.codepunisher.mcaimcore.events.eventmodels.ArmorType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -39,7 +39,7 @@ public class ArmorListener implements Listener
     private final int[] armorSlots = { 36, 37, 38, 39 };
 
     // For respawning on armor remove cancel
-    private HashMap<UUID, List<ItemStack>> respawnUser = new HashMap<>();
+    private final HashMap<UUID, List<ItemStack>> respawnUser = new HashMap<>();
 
     // ----- ARMOR EQUIP/REMOVE ----- //
     @EventHandler (priority = EventPriority.HIGHEST, ignoreCancelled = true)
