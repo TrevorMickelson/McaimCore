@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="McaimCore:jar">
-    <output-path>$USER_HOME$/Desktop/My Server/plugins</output-path>
+    <output-path>$USER_HOME$/Desktop/Plugins</output-path>
     <root id="archive" name="McaimCore.jar">
       <element id="module-output" name="McaimCore" />
     </root>

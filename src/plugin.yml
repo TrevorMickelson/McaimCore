@@ -1,9 +1,0 @@
-name: McAimCore
-author: CodePunisher
-version: 1.0
-main: com.codepunisher.mcaimcore.CoreMain
-api-version: 1.16
-
-commands:
-  blindness:
-    description: blah
