@@ -1,6 +1,6 @@
 package com.mcaim.core.models.cooldown;
 
-import com.mcaim.core.scheduler.Sync;
+import com.mcaim.core.scheduler.Async;
 
 import java.util.*;
 
@@ -35,7 +35,7 @@ public class CooldownHandler {
      * to avoid any nasty memory leak
      */
     public void initClearTask() {
-        Sync.get().interval(1200L).run(() -> {
+        Async.get().interval(1200L).run(() -> {
             Iterator<Map.Entry<UUID, List<Cooldown>>> iterator = cooldownUsers.entrySet().iterator();
 
             while (iterator.hasNext()) {

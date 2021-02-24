@@ -2,6 +2,7 @@ package com.mcaim.core.util;
 
 import net.minecraft.server.v1_16_R3.EntityHuman;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -71,5 +72,14 @@ public class PlayerUtil {
             items.forEach((item) -> { inventory.addItem(itemStack); });
             playerWrapper.saveData();
         }
+    }
+
+    /**
+     * Plays a sound for all online players
+     */
+    public static void playSoundForPlayers(Sound sound) {
+        Bukkit.getOnlinePlayers().forEach(p -> {
+            p.playSound(p.getLocation(), sound, 1.0f, 1.0f);
+        });
     }
 }

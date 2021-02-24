@@ -1,0 +1,7 @@
+server-type: ServerName
+MySQL:
+  host: "192.53.162.188"
+  port: "3306"
+  database: "mcaim"
+  username: "admin"
+  password: "Trevorlego28"
